@@ -6,7 +6,10 @@ import {
   tweenDirective,
 } from './src';
 
-function plugin(Vue) {
+function plugin(Vue, options) {
+  if (options.addIndicators) {
+    sceneManager.addIndicators = true;
+  }
   Vue.prototype.$sceneManager = sceneManager;
   Vue.directive('sw-scene', sceneDirective);
   Vue.directive('sw-pin', pinDirective);
