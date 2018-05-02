@@ -6,12 +6,6 @@ import * as ScrollWizardry from 'scrollwizardry';
 
 const { Controller, Scene } = ScrollWizardry;
 
-const defaultOptions = {
-  addIndicators: false,
-};
-
-let sceneManager;
-
 class SceneManager {
   constructor(options) {
     this.options = options;
@@ -64,6 +58,10 @@ class SceneManager {
 
   get addIndicators() {
     return this.options.addIndicators;
+  }
+
+  set addIndicators(addIndicators) {
+    this.options.addIndicators = addIndicators;
   }
 
   _notifySceneObservers(sceneId, ...args) {
@@ -131,6 +129,10 @@ class SceneManager {
     }
   }
 }
+
+const sceneManager = new SceneManager({
+  addIndicators: false,
+});
 
 const sceneDirective = {
   inserted(el, binding) {
@@ -310,8 +312,6 @@ const tweenDirective = {
     delete el.$observers;
   },
 };
-
-sceneManager = new SceneManager(options);
 
 export {
   sceneManager,
