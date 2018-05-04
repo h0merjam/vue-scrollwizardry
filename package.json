@@ -1,6 +1,6 @@
 {
   "name": "vue-scrollwizardry",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Scrollwizardry for Vue",
   "main": "index.es6",
   "scripts": {
