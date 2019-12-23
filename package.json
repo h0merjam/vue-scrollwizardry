@@ -22,7 +22,7 @@
   "homepage": "https://github.com/homerjam/vue-scrollwizardry#readme",
   "dependencies": {
     "gsap": "^3.0.4",
-    "scrollwizardry": "0.0.15"
+    "scrollwizardry": "0.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

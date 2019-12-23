@@ -760,10 +760,10 @@ rxjs@^6.5.3:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-scrollwizardry@0.0.15:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/scrollwizardry/-/scrollwizardry-0.0.15.tgz#3f0b45f91c03b3a9bf093bc7386b8ea577466abe"
-  integrity sha512-KywAnXLphGqLsOBSMP3uAklflNEOIYl6Xl9oOX+h/ydPFOEZOW/+gUHXQ3YmKU9fkVQYC8WmcGpF31YjfjyPSg==
+scrollwizardry@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/scrollwizardry/-/scrollwizardry-0.1.0.tgz#4251facbd63e4a217c86cbbc10ae16475f33b2e1"
+  integrity sha512-6z4B+ss5BOwvmkoSl4AfM5dU8fwK615PpEAqCmQ4ozdG6YP3C2Jm/ZH7YCHD2KMQjymmOmPY01xw8jR7p67c9Q==
 
 semver@^5.5.0:
   version "5.7.1"
