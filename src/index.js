@@ -1,7 +1,7 @@
+/* eslint-env browser */
 /* eslint no-underscore-dangle: 0, max-len: 0, prefer-destructuring: 0, no-nested-ternary: 0 */
 
-import TweenMax from 'gsap/TweenMax';
-import TimelineMax from 'gsap/TimelineMax';
+import { TweenMax, TimelineMax } from 'gsap';
 import * as ScrollWizardry from 'scrollwizardry';
 
 const { Controller, Scene } = ScrollWizardry;
@@ -43,14 +43,15 @@ class SceneManager {
 
     const percent = /([0-9]+)%$/.exec(string);
     if (percent) {
-      number = () => triggerElement.clientHeight * (parseFloat(percent[1]) / 100);
+      number = () =>
+        triggerElement.clientHeight * (parseFloat(percent[1]) / 100);
     }
 
     return number;
   }
 
   static mounted(element) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const observer = new MutationObserver(resolve);
       observer.observe(element.parentNode, { childList: true });
     });
@@ -65,7 +66,7 @@ class SceneManager {
   }
 
   _notifySceneObservers(sceneId, ...args) {
-    this._sceneObservers[sceneId].forEach((fn) => {
+    this._sceneObservers[sceneId].forEach(fn => {
       fn(this.getScene(sceneId), sceneId, ...args);
     });
   }
@@ -125,7 +126,9 @@ class SceneManager {
     const observerIds = observers.map(observer => observer.id);
 
     if (this._sceneObservers[sceneId]) {
-      this._sceneObservers[sceneId] = this._sceneObservers[sceneId].filter(({ id }) => !observerIds.includes(id));
+      this._sceneObservers[sceneId] = this._sceneObservers[sceneId].filter(
+        ({ id }) => !observerIds.includes(id)
+      );
     }
   }
 }
@@ -138,18 +141,20 @@ const sceneDirective = {
   inserted(el, binding) {
     const options = binding.value;
 
-    const sceneId = options.sceneId ? sceneManager.getSceneIds(options.sceneId)[0]
+    const sceneId = options.sceneId
+      ? sceneManager.getSceneIds(options.sceneId)[0]
       : `_scene-${sceneManager.getSceneCount() + 1}`;
 
     if (sceneManager.getScene(sceneId)) {
       sceneManager.destroyScene(sceneId);
     }
 
-    let scene;
+    let scene = undefined;
     let offset = options.offset !== undefined ? options.offset : 0;
     let duration = options.duration !== undefined ? options.duration : 0;
     const triggerElement = options.triggerElement ? options.triggerElement : el;
-    const triggerHook = options.triggerHook !== undefined ? options.triggerHook : 0.5;
+    const triggerHook =
+      options.triggerHook !== undefined ? options.triggerHook : 0.5;
 
     if (typeof offset === 'string') {
       offset = SceneManager.parseString(offset, triggerElement);
@@ -180,8 +185,8 @@ const sceneDirective = {
     });
 
     if (options.on) {
-      Object.keys(options.on).forEach((eventName) => {
-        scene.on(eventName, (event) => {
+      Object.keys(options.on).forEach(eventName => {
+        scene.on(eventName, event => {
           options.on[eventName]({
             event,
             scene,
@@ -225,8 +230,8 @@ const pinDirective = {
 
     el.$observers = [];
 
-    sceneManager.getSceneIds(options.sceneId).forEach((sceneId) => {
-      const observer = (scene) => {
+    sceneManager.getSceneIds(options.sceneId).forEach(sceneId => {
+      const observer = scene => {
         scene.setPin(SceneManager.getTargetElement(el, options.targetElement));
       };
 
@@ -257,8 +262,11 @@ const classToggleDirective = {
         className = className[i];
       }
 
-      const observer = (scene) => {
-        scene.setClassToggle(SceneManager.getTargetElement(el, options.targetElement), className);
+      const observer = scene => {
+        scene.setClassToggle(
+          SceneManager.getTargetElement(el, options.targetElement),
+          className
+        );
       };
 
       observer.id = +new Date();
@@ -281,18 +289,23 @@ const tweenDirective = {
 
     el.$observers = [];
 
-    sceneManager.getSceneIds(options.sceneId).forEach((sceneId) => {
+    sceneManager.getSceneIds(options.sceneId).forEach(sceneId => {
       const duration = options.duration || 1;
       const fromVars = options.fromVars;
       const toVars = options.toVars || options.vars;
       const method = fromVars && toVars ? 'fromTo' : fromVars ? 'from' : 'to';
 
-      const observer = (scene) => {
+      const observer = scene => {
         if (!scene.timeline) {
           scene.timeline = new TimelineMax();
         }
 
-        const tween = TweenMax[method](SceneManager.getTargetElement(el, options.targetElement), duration, fromVars || toVars, toVars);
+        const tween = TweenMax[method](
+          SceneManager.getTargetElement(el, options.targetElement),
+          duration,
+          fromVars || toVars,
+          toVars
+        );
 
         scene.timeline.add([tween], 0, 'normal');
 
