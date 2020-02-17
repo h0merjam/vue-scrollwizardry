@@ -457,10 +457,10 @@ globals@^12.1.0:
   dependencies:
     type-fest "^0.8.1"
 
-gsap@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.0.4.tgz#865d2b1d5b2d8afad272e96d15f43e5409ab2b29"
-  integrity sha512-l3fmElGrXt94zor+H2MxN5l5KBjUebL070MNOzkbF5tG2W303NwIc7eoge/Ic7XxLT98RA3x/sGqZ1UwzalckQ==
+gsap@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.1.1.tgz#b3f5f646563d4099aab9681d16703613f5de6a8c"
+  integrity sha512-ISkCKuXMtBbmbchJxWXuZydXnnWVV9SqNqd8vAevvtq0yzyBapMbXLxwambK73S/2kpTIVzYW8eJXlDD7yHhvw==
 
 has-flag@^3.0.0:
   version "3.0.0"
@@ -760,10 +760,12 @@ rxjs@^6.5.3:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-scrollwizardry@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/scrollwizardry/-/scrollwizardry-0.1.0.tgz#4251facbd63e4a217c86cbbc10ae16475f33b2e1"
-  integrity sha512-6z4B+ss5BOwvmkoSl4AfM5dU8fwK615PpEAqCmQ4ozdG6YP3C2Jm/ZH7YCHD2KMQjymmOmPY01xw8jR7p67c9Q==
+scrollwizardry@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/scrollwizardry/-/scrollwizardry-0.2.1.tgz#5d811c6e6e3881911f54669739dbbf81f089fe78"
+  integrity sha512-A+3YWiy7QGqmlA2Bni60qL1/gBzFvjpdKzL/LubCtmdzgNiMa5FzF+w5J+wnEu85H/PajrviH7zuAG5l+rz2Mg==
+  dependencies:
+    lodash "^4.17.15"
 
 semver@^5.5.0:
   version "5.7.1"

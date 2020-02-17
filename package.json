@@ -14,15 +14,15 @@
     "vue",
     "scroll"
   ],
-  "author": "homerjam <jameshomer85@gmail.com>",
+  "author": "James Homer <hello@homerjam.es>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/homerjam/vue-scrollwizardry/issues"
   },
   "homepage": "https://github.com/homerjam/vue-scrollwizardry#readme",
   "dependencies": {
-    "gsap": "^3.0.4",
-    "scrollwizardry": "0.1.0"
+    "gsap": "^3.1.1",
+    "scrollwizardry": "^0.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
